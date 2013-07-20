@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="41d628c8b3de4eca9aa4eace43d39e30" Name="Diagrama1">
+        <EntityTypeShape EntityType="multilingualModel.alumno" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.asesor" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.dom_titular" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.idioma" Width="1.5" PointX="9.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.matricula" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.organizacion" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.pago" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.subgerente" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.supervisor" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.titular" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="multilingualModel.fk_Alumno_Matricula1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Asesor_Organizacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Matricula_Asesor1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Titular_Dom_Titular1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Matricula_Organizacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Matricula_Subgerente1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Matricula_Supervisor1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Matricula_Titular1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Pagos_Matricula1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Subgerente_Organizacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.fk_Supervisor_Organizacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="multilingualModel.idiomas_has_alumno" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

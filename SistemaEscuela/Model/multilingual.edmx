@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="multilingualModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="multilingualModelStoreContainer">
+          <EntitySet Name="alumno" EntityType="multilingualModel.Store.alumno" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="asesor" EntityType="multilingualModel.Store.asesor" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="dom_titular" EntityType="multilingualModel.Store.dom_titular" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="idiomas" EntityType="multilingualModel.Store.idiomas" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="idiomas_has_alumno" EntityType="multilingualModel.Store.idiomas_has_alumno" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="matricula" EntityType="multilingualModel.Store.matricula" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="organizacion" EntityType="multilingualModel.Store.organizacion" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="pagos" EntityType="multilingualModel.Store.pagos" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="subgerente" EntityType="multilingualModel.Store.subgerente" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="supervisor" EntityType="multilingualModel.Store.supervisor" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="titular" EntityType="multilingualModel.Store.titular" store:Type="Tables" Schema="multilingual" />
+          <AssociationSet Name="fk_Alumno_Matricula1" Association="multilingualModel.Store.fk_Alumno_Matricula1">
+            <End Role="matricula" EntitySet="matricula" />
+            <End Role="alumno" EntitySet="alumno" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Asesor_Organizacion1" Association="multilingualModel.Store.fk_Asesor_Organizacion1">
+            <End Role="organizacion" EntitySet="organizacion" />
+            <End Role="asesor" EntitySet="asesor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Idiomas_has_Alumno_Alumno1" Association="multilingualModel.Store.fk_Idiomas_has_Alumno_Alumno1">
+            <End Role="alumno" EntitySet="alumno" />
+            <End Role="idiomas_has_alumno" EntitySet="idiomas_has_alumno" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Idiomas_has_Alumno_Idiomas1" Association="multilingualModel.Store.fk_Idiomas_has_Alumno_Idiomas1">
+            <End Role="idiomas" EntitySet="idiomas" />
+            <End Role="idiomas_has_alumno" EntitySet="idiomas_has_alumno" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Asesor1" Association="multilingualModel.Store.fk_Matricula_Asesor1">
+            <End Role="asesor" EntitySet="asesor" />
+            <End Role="matricula" EntitySet="matricula" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Organizacion1" Association="multilingualModel.Store.fk_Matricula_Organizacion1">
+            <End Role="organizacion" EntitySet="organizacion" />
+            <End Role="matricula" EntitySet="matricula" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Subgerente1" Association="multilingualModel.Store.fk_Matricula_Subgerente1">
+            <End Role="subgerente" EntitySet="subgerente" />
+            <End Role="matricula" EntitySet="matricula" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Supervisor1" Association="multilingualModel.Store.fk_Matricula_Supervisor1">
+            <End Role="supervisor" EntitySet="supervisor" />
+            <End Role="matricula" EntitySet="matricula" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Titular1" Association="multilingualModel.Store.fk_Matricula_Titular1">
+            <End Role="titular" EntitySet="titular" />
+            <End Role="matricula" EntitySet="matricula" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pagos_Matricula1" Association="multilingualModel.Store.fk_Pagos_Matricula1">
+            <End Role="matricula" EntitySet="matricula" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Subgerente_Organizacion1" Association="multilingualModel.Store.fk_Subgerente_Organizacion1">
+            <End Role="organizacion" EntitySet="organizacion" />
+            <End Role="subgerente" EntitySet="subgerente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Supervisor_Organizacion1" Association="multilingualModel.Store.fk_Supervisor_Organizacion1">
+            <End Role="organizacion" EntitySet="organizacion" />
+            <End Role="supervisor" EntitySet="supervisor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Titular_Dom_Titular1" Association="multilingualModel.Store.fk_Titular_Dom_Titular1">
+            <End Role="dom_titular" EntitySet="dom_titular" />
+            <End Role="titular" EntitySet="titular" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="alumno">
+          <Key>
+            <PropertyRef Name="id_alumno" />
+          </Key>
+          <Property Name="id_alumno" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Matricula" Type="int" Nullable="false" />
+          <Property Name="Matricula_idMatricula" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="asesor">
+          <Key>
+            <PropertyRef Name="idAsesor" />
+          </Key>
+          <Property Name="idAsesor" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Organizacion_idOrganizacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dom_titular">
+          <Key>
+            <PropertyRef Name="idDom_Titular" />
+          </Key>
+          <Property Name="idDom_Titular" Type="int" Nullable="false" />
+          <Property Name="Calle" Type="varchar" MaxLength="80" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="Colonia" Type="varchar" MaxLength="80" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="idiomas">
+          <Key>
+            <PropertyRef Name="idIdiomas" />
+          </Key>
+          <Property Name="idIdiomas" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="Nivel" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="idiomas_has_alumno">
+          <Key>
+            <PropertyRef Name="Idiomas_idIdiomas" />
+            <PropertyRef Name="Alumno_id_alumno" />
+          </Key>
+          <Property Name="Idiomas_idIdiomas" Type="int" Nullable="false" />
+          <Property Name="Alumno_id_alumno" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="matricula">
+          <Key>
+            <PropertyRef Name="idMatricula" />
+          </Key>
+          <Property Name="idMatricula" Type="int" Nullable="false" />
+          <Property Name="Numero_Contrato" Type="int" />
+          <Property Name="Estatus" Type="varchar" MaxLength="45" />
+          <Property Name="Costo_Total" Type="decimal" />
+          <Property Name="Cuota" Type="int" />
+          <Property Name="Importe_Mensual" Type="decimal" />
+          <Property Name="Fecha_Matricula" Type="datetime" />
+          <Property Name="Fecha_Validacion" Type="datetime" />
+          <Property Name="No_Puntos" Type="decimal" />
+          <Property Name="No_RP" Type="int" />
+          <Property Name="Tiempo_Servicio" Type="varchar" MaxLength="45" />
+          <Property Name="Tipo_Programa" Type="varchar" MaxLength="45" />
+          <Property Name="Estrategia" Type="varchar" MaxLength="45" />
+          <Property Name="No_Confidencial" Type="int" />
+          <Property Name="Saldo_Pendiente" Type="decimal" />
+          <Property Name="Organizacion_idOrganizacion" Type="int" Nullable="false" />
+          <Property Name="Titular_idTitular" Type="int" Nullable="false" />
+          <Property Name="Observaciones" Type="text" />
+          <Property Name="Vigencia" Type="datetime" />
+          <Property Name="No_Consecutivo" Type="int" />
+          <Property Name="Subgerente_idSubgerente" Type="int" Nullable="false" />
+          <Property Name="Supervisor_idSupervisor" Type="int" Nullable="false" />
+          <Property Name="Asesor_idAsesor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organizacion">
+          <Key>
+            <PropertyRef Name="idOrganizacion" />
+          </Key>
+          <Property Name="idOrganizacion" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Gerente" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="pagos">
+          <Key>
+            <PropertyRef Name="idPagos" />
+          </Key>
+          <Property Name="idPagos" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha_de_Pago" Type="datetime" />
+          <Property Name="Cantidad_Recibida" Type="decimal" />
+          <Property Name="Numero_Cuota" Type="int" />
+          <Property Name="Mes_Pagado" Type="datetime" />
+          <Property Name="Numero_Recibo" Type="int" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="100" />
+          <Property Name="Tipo_Pago" Type="varchar" MaxLength="45" />
+          <Property Name="Metodo_Pago" Type="varchar" MaxLength="45" />
+          <Property Name="Matricula_idMatricula" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subgerente">
+          <Key>
+            <PropertyRef Name="idSubgerente" />
+          </Key>
+          <Property Name="idSubgerente" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Organizacion_idOrganizacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supervisor">
+          <Key>
+            <PropertyRef Name="idSupervisor" />
+          </Key>
+          <Property Name="idSupervisor" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Organizacion_idOrganizacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="titular">
+          <Key>
+            <PropertyRef Name="idTitular" />
+          </Key>
+          <Property Name="idTitular" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono_Particular" Type="varchar" MaxLength="45" />
+          <Property Name="Telefono_Oficina" Type="varchar" MaxLength="45" />
+          <Property Name="RFC" Type="varchar" MaxLength="45" />
+          <Property Name="Compania" Type="varchar" MaxLength="45" />
+          <Property Name="Profesion" Type="varchar" MaxLength="45" />
+          <Property Name="Dom_Titular_idDom_Titular1" Type="int" Nullable="false" />
+          <Property Name="Telefono_Celular" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <Association Name="fk_Alumno_Matricula1">
+          <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="1" />
+          <End Role="alumno" Type="multilingualModel.Store.alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matricula">
+              <PropertyRef Name="idMatricula" />
+            </Principal>
+            <Dependent Role="alumno">
+              <PropertyRef Name="Matricula_idMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Asesor_Organizacion1">
+          <End Role="organizacion" Type="multilingualModel.Store.organizacion" Multiplicity="1" />
+          <End Role="asesor" Type="multilingualModel.Store.asesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="asesor">
+              <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Idiomas_has_Alumno_Alumno1">
+          <End Role="alumno" Type="multilingualModel.Store.alumno" Multiplicity="1" />
+          <End Role="idiomas_has_alumno" Type="multilingualModel.Store.idiomas_has_alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alumno">
+              <PropertyRef Name="id_alumno" />
+            </Principal>
+            <Dependent Role="idiomas_has_alumno">
+              <PropertyRef Name="Alumno_id_alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Idiomas_has_Alumno_Idiomas1">
+          <End Role="idiomas" Type="multilingualModel.Store.idiomas" Multiplicity="1" />
+          <End Role="idiomas_has_alumno" Type="multilingualModel.Store.idiomas_has_alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idiomas">
+              <PropertyRef Name="idIdiomas" />
+            </Principal>
+            <Dependent Role="idiomas_has_alumno">
+              <PropertyRef Name="Idiomas_idIdiomas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Asesor1">
+          <End Role="asesor" Type="multilingualModel.Store.asesor" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="asesor">
+              <PropertyRef Name="idAsesor" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Asesor_idAsesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Organizacion1">
+          <End Role="organizacion" Type="multilingualModel.Store.organizacion" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Subgerente1">
+          <End Role="subgerente" Type="multilingualModel.Store.subgerente" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subgerente">
+              <PropertyRef Name="idSubgerente" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Subgerente_idSubgerente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Supervisor1">
+          <End Role="supervisor" Type="multilingualModel.Store.supervisor" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supervisor">
+              <PropertyRef Name="idSupervisor" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Supervisor_idSupervisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Titular1">
+          <End Role="titular" Type="multilingualModel.Store.titular" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="titular">
+              <PropertyRef Name="idTitular" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Titular_idTitular" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pagos_Matricula1">
+          <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="1" />
+          <End Role="pagos" Type="multilingualModel.Store.pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matricula">
+              <PropertyRef Name="idMatricula" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="Matricula_idMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Subgerente_Organizacion1">
+          <End Role="organizacion" Type="multilingualModel.Store.organizacion" Multiplicity="1" />
+          <End Role="subgerente" Type="multilingualModel.Store.subgerente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="subgerente">
+              <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Supervisor_Organizacion1">
+          <End Role="organizacion" Type="multilingualModel.Store.organizacion" Multiplicity="1" />
+          <End Role="supervisor" Type="multilingualModel.Store.supervisor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="supervisor">
+              <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Titular_Dom_Titular1">
+          <End Role="dom_titular" Type="multilingualModel.Store.dom_titular" Multiplicity="1" />
+          <End Role="titular" Type="multilingualModel.Store.titular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dom_titular">
+              <PropertyRef Name="idDom_Titular" />
+            </Principal>
+            <Dependent Role="titular">
+              <PropertyRef Name="Dom_Titular_idDom_Titular1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="multilingualModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="multilingualEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="alumnoes" EntityType="multilingualModel.alumno" />
+          <EntitySet Name="asesors" EntityType="multilingualModel.asesor" />
+          <EntitySet Name="dom_titular" EntityType="multilingualModel.dom_titular" />
+          <EntitySet Name="idiomas" EntityType="multilingualModel.idioma" />
+          <EntitySet Name="matriculas" EntityType="multilingualModel.matricula" />
+          <EntitySet Name="organizacions" EntityType="multilingualModel.organizacion" />
+          <EntitySet Name="pagos" EntityType="multilingualModel.pago" />
+          <EntitySet Name="subgerentes" EntityType="multilingualModel.subgerente" />
+          <EntitySet Name="supervisors" EntityType="multilingualModel.supervisor" />
+          <EntitySet Name="titulars" EntityType="multilingualModel.titular" />
+          <AssociationSet Name="fk_Alumno_Matricula1" Association="multilingualModel.fk_Alumno_Matricula1">
+            <End Role="matricula" EntitySet="matriculas" />
+            <End Role="alumno" EntitySet="alumnoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Asesor_Organizacion1" Association="multilingualModel.fk_Asesor_Organizacion1">
+            <End Role="organizacion" EntitySet="organizacions" />
+            <End Role="asesor" EntitySet="asesors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Asesor1" Association="multilingualModel.fk_Matricula_Asesor1">
+            <End Role="asesor" EntitySet="asesors" />
+            <End Role="matricula" EntitySet="matriculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Titular_Dom_Titular1" Association="multilingualModel.fk_Titular_Dom_Titular1">
+            <End Role="dom_titular" EntitySet="dom_titular" />
+            <End Role="titular" EntitySet="titulars" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Organizacion1" Association="multilingualModel.fk_Matricula_Organizacion1">
+            <End Role="organizacion" EntitySet="organizacions" />
+            <End Role="matricula" EntitySet="matriculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Subgerente1" Association="multilingualModel.fk_Matricula_Subgerente1">
+            <End Role="subgerente" EntitySet="subgerentes" />
+            <End Role="matricula" EntitySet="matriculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Supervisor1" Association="multilingualModel.fk_Matricula_Supervisor1">
+            <End Role="supervisor" EntitySet="supervisors" />
+            <End Role="matricula" EntitySet="matriculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matricula_Titular1" Association="multilingualModel.fk_Matricula_Titular1">
+            <End Role="titular" EntitySet="titulars" />
+            <End Role="matricula" EntitySet="matriculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pagos_Matricula1" Association="multilingualModel.fk_Pagos_Matricula1">
+            <End Role="matricula" EntitySet="matriculas" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Subgerente_Organizacion1" Association="multilingualModel.fk_Subgerente_Organizacion1">
+            <End Role="organizacion" EntitySet="organizacions" />
+            <End Role="subgerente" EntitySet="subgerentes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Supervisor_Organizacion1" Association="multilingualModel.fk_Supervisor_Organizacion1">
+            <End Role="organizacion" EntitySet="organizacions" />
+            <End Role="supervisor" EntitySet="supervisors" />
+          </AssociationSet>
+          <AssociationSet Name="idiomas_has_alumno" Association="multilingualModel.idiomas_has_alumno">
+            <End Role="alumno" EntitySet="alumnoes" />
+            <End Role="idiomas" EntitySet="idiomas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="alumno">
+          <Key>
+            <PropertyRef Name="id_alumno" />
+          </Key>
+          <Property Name="id_alumno" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Matricula" Type="Int32" Nullable="false" />
+          <Property Name="Matricula_idMatricula" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="matricula1" Relationship="multilingualModel.fk_Alumno_Matricula1" FromRole="alumno" ToRole="matricula" />
+          <NavigationProperty Name="idiomas" Relationship="multilingualModel.idiomas_has_alumno" FromRole="alumno" ToRole="idiomas" />
+        </EntityType>
+        <EntityType Name="asesor">
+          <Key>
+            <PropertyRef Name="idAsesor" />
+          </Key>
+          <Property Name="idAsesor" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Organizacion_idOrganizacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="organizacion" Relationship="multilingualModel.fk_Asesor_Organizacion1" FromRole="asesor" ToRole="organizacion" />
+          <NavigationProperty Name="matriculas" Relationship="multilingualModel.fk_Matricula_Asesor1" FromRole="asesor" ToRole="matricula" />
+        </EntityType>
+        <EntityType Name="dom_titular">
+          <Key>
+            <PropertyRef Name="idDom_Titular" />
+          </Key>
+          <Property Name="idDom_Titular" Type="Int32" Nullable="false" />
+          <Property Name="Calle" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="Colonia" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="titulars" Relationship="multilingualModel.fk_Titular_Dom_Titular1" FromRole="dom_titular" ToRole="titular" />
+        </EntityType>
+        <EntityType Name="idioma">
+          <Key>
+            <PropertyRef Name="idIdiomas" />
+          </Key>
+          <Property Name="idIdiomas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Nivel" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="alumnoes" Relationship="multilingualModel.idiomas_has_alumno" FromRole="idiomas" ToRole="alumno" />
+        </EntityType>
+        <EntityType Name="matricula">
+          <Key>
+            <PropertyRef Name="idMatricula" />
+          </Key>
+          <Property Name="idMatricula" Type="Int32" Nullable="false" />
+          <Property Name="Numero_Contrato" Type="Int32" />
+          <Property Name="Estatus" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Costo_Total" Type="Decimal" />
+          <Property Name="Cuota" Type="Int32" />
+          <Property Name="Importe_Mensual" Type="Decimal" />
+          <Property Name="Fecha_Matricula" Type="DateTime" />
+          <Property Name="Fecha_Validacion" Type="DateTime" />
+          <Property Name="No_Puntos" Type="Decimal" />
+          <Property Name="No_RP" Type="Int32" />
+          <Property Name="Tiempo_Servicio" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Tipo_Programa" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Estrategia" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="No_Confidencial" Type="Int32" />
+          <Property Name="Saldo_Pendiente" Type="Decimal" />
+          <Property Name="Organizacion_idOrganizacion" Type="Int32" Nullable="false" />
+          <Property Name="Titular_idTitular" Type="Int32" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
+          <Property Name="Vigencia" Type="DateTime" />
+          <Property Name="No_Consecutivo" Type="Int32" />
+          <Property Name="Subgerente_idSubgerente" Type="Int32" Nullable="false" />
+          <Property Name="Supervisor_idSupervisor" Type="Int32" Nullable="false" />
+          <Property Name="Asesor_idAsesor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="alumnoes" Relationship="multilingualModel.fk_Alumno_Matricula1" FromRole="matricula" ToRole="alumno" />
+          <NavigationProperty Name="asesor" Relationship="multilingualModel.fk_Matricula_Asesor1" FromRole="matricula" ToRole="asesor" />
+          <NavigationProperty Name="organizacion" Relationship="multilingualModel.fk_Matricula_Organizacion1" FromRole="matricula" ToRole="organizacion" />
+          <NavigationProperty Name="subgerente" Relationship="multilingualModel.fk_Matricula_Subgerente1" FromRole="matricula" ToRole="subgerente" />
+          <NavigationProperty Name="supervisor" Relationship="multilingualModel.fk_Matricula_Supervisor1" FromRole="matricula" ToRole="supervisor" />
+          <NavigationProperty Name="titular" Relationship="multilingualModel.fk_Matricula_Titular1" FromRole="matricula" ToRole="titular" />
+          <NavigationProperty Name="pagos" Relationship="multilingualModel.fk_Pagos_Matricula1" FromRole="matricula" ToRole="pagos" />
+        </EntityType>
+        <EntityType Name="organizacion">
+          <Key>
+            <PropertyRef Name="idOrganizacion" />
+          </Key>
+          <Property Name="idOrganizacion" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Gerente" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="asesors" Relationship="multilingualModel.fk_Asesor_Organizacion1" FromRole="organizacion" ToRole="asesor" />
+          <NavigationProperty Name="matriculas" Relationship="multilingualModel.fk_Matricula_Organizacion1" FromRole="organizacion" ToRole="matricula" />
+          <NavigationProperty Name="subgerentes" Relationship="multilingualModel.fk_Subgerente_Organizacion1" FromRole="organizacion" ToRole="subgerente" />
+          <NavigationProperty Name="supervisors" Relationship="multilingualModel.fk_Supervisor_Organizacion1" FromRole="organizacion" ToRole="supervisor" />
+        </EntityType>
+        <EntityType Name="pago">
+          <Key>
+            <PropertyRef Name="idPagos" />
+          </Key>
+          <Property Name="idPagos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha_de_Pago" Type="DateTime" />
+          <Property Name="Cantidad_Recibida" Type="Decimal" />
+          <Property Name="Numero_Cuota" Type="Int32" />
+          <Property Name="Mes_Pagado" Type="DateTime" />
+          <Property Name="Numero_Recibo" Type="Int32" />
+          <Property Name="Observaciones" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Tipo_Pago" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Metodo_Pago" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Matricula_idMatricula" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="matricula" Relationship="multilingualModel.fk_Pagos_Matricula1" FromRole="pagos" ToRole="matricula" />
+        </EntityType>
+        <EntityType Name="subgerente">
+          <Key>
+            <PropertyRef Name="idSubgerente" />
+          </Key>
+          <Property Name="idSubgerente" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Organizacion_idOrganizacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="matriculas" Relationship="multilingualModel.fk_Matricula_Subgerente1" FromRole="subgerente" ToRole="matricula" />
+          <NavigationProperty Name="organizacion" Relationship="multilingualModel.fk_Subgerente_Organizacion1" FromRole="subgerente" ToRole="organizacion" />
+        </EntityType>
+        <EntityType Name="supervisor">
+          <Key>
+            <PropertyRef Name="idSupervisor" />
+          </Key>
+          <Property Name="idSupervisor" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Organizacion_idOrganizacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="matriculas" Relationship="multilingualModel.fk_Matricula_Supervisor1" FromRole="supervisor" ToRole="matricula" />
+          <NavigationProperty Name="organizacion" Relationship="multilingualModel.fk_Supervisor_Organizacion1" FromRole="supervisor" ToRole="organizacion" />
+        </EntityType>
+        <EntityType Name="titular">
+          <Key>
+            <PropertyRef Name="idTitular" />
+          </Key>
+          <Property Name="idTitular" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Telefono_Particular" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Telefono_Oficina" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="RFC" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Compania" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Profesion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Dom_Titular_idDom_Titular1" Type="Int32" Nullable="false" />
+          <Property Name="Telefono_Celular" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="dom_titular" Relationship="multilingualModel.fk_Titular_Dom_Titular1" FromRole="titular" ToRole="dom_titular" />
+          <NavigationProperty Name="matriculas" Relationship="multilingualModel.fk_Matricula_Titular1" FromRole="titular" ToRole="matricula" />
+        </EntityType>
+        <Association Name="fk_Alumno_Matricula1">
+          <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="1" />
+          <End Role="alumno" Type="multilingualModel.alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matricula">
+              <PropertyRef Name="idMatricula" />
+            </Principal>
+            <Dependent Role="alumno">
+              <PropertyRef Name="Matricula_idMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Asesor_Organizacion1">
+          <End Role="organizacion" Type="multilingualModel.organizacion" Multiplicity="1" />
+          <End Role="asesor" Type="multilingualModel.asesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="asesor">
+              <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Asesor1">
+          <End Role="asesor" Type="multilingualModel.asesor" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="asesor">
+              <PropertyRef Name="idAsesor" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Asesor_idAsesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Titular_Dom_Titular1">
+          <End Role="dom_titular" Type="multilingualModel.dom_titular" Multiplicity="1" />
+          <End Role="titular" Type="multilingualModel.titular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dom_titular">
+              <PropertyRef Name="idDom_Titular" />
+            </Principal>
+            <Dependent Role="titular">
+              <PropertyRef Name="Dom_Titular_idDom_Titular1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Organizacion1">
+          <End Role="organizacion" Type="multilingualModel.organizacion" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Subgerente1">
+          <End Role="subgerente" Type="multilingualModel.subgerente" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subgerente">
+              <PropertyRef Name="idSubgerente" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Subgerente_idSubgerente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Supervisor1">
+          <End Role="supervisor" Type="multilingualModel.supervisor" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supervisor">
+              <PropertyRef Name="idSupervisor" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Supervisor_idSupervisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matricula_Titular1">
+          <End Role="titular" Type="multilingualModel.titular" Multiplicity="1" />
+          <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="titular">
+              <PropertyRef Name="idTitular" />
+            </Principal>
+            <Dependent Role="matricula">
+              <PropertyRef Name="Titular_idTitular" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pagos_Matricula1">
+          <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="1" />
+          <End Role="pagos" Type="multilingualModel.pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matricula">
+              <PropertyRef Name="idMatricula" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="Matricula_idMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Subgerente_Organizacion1">
+          <End Role="organizacion" Type="multilingualModel.organizacion" Multiplicity="1" />
+          <End Role="subgerente" Type="multilingualModel.subgerente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="subgerente">
+              <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Supervisor_Organizacion1">
+          <End Role="organizacion" Type="multilingualModel.organizacion" Multiplicity="1" />
+          <End Role="supervisor" Type="multilingualModel.supervisor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="supervisor">
+              <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idiomas_has_alumno">
+          <End Role="alumno" Type="multilingualModel.alumno" Multiplicity="*" />
+          <End Role="idiomas" Type="multilingualModel.idioma" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="multilingualModelStoreContainer" CdmEntityContainer="multilingualEntities">
+          <EntitySetMapping Name="alumnoes">
+            <EntityTypeMapping TypeName="multilingualModel.alumno">
+              <MappingFragment StoreEntitySet="alumno">
+                <ScalarProperty Name="id_alumno" ColumnName="id_alumno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Matricula_idMatricula" ColumnName="Matricula_idMatricula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="asesors">
+            <EntityTypeMapping TypeName="multilingualModel.asesor">
+              <MappingFragment StoreEntitySet="asesor">
+                <ScalarProperty Name="idAsesor" ColumnName="idAsesor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Organizacion_idOrganizacion" ColumnName="Organizacion_idOrganizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dom_titular">
+            <EntityTypeMapping TypeName="multilingualModel.dom_titular">
+              <MappingFragment StoreEntitySet="dom_titular">
+                <ScalarProperty Name="idDom_Titular" ColumnName="idDom_Titular" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="idiomas">
+            <EntityTypeMapping TypeName="multilingualModel.idioma">
+              <MappingFragment StoreEntitySet="idiomas">
+                <ScalarProperty Name="idIdiomas" ColumnName="idIdiomas" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="matriculas">
+            <EntityTypeMapping TypeName="multilingualModel.matricula">
+              <MappingFragment StoreEntitySet="matricula">
+                <ScalarProperty Name="idMatricula" ColumnName="idMatricula" />
+                <ScalarProperty Name="Numero_Contrato" ColumnName="Numero_Contrato" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Costo_Total" ColumnName="Costo_Total" />
+                <ScalarProperty Name="Cuota" ColumnName="Cuota" />
+                <ScalarProperty Name="Importe_Mensual" ColumnName="Importe_Mensual" />
+                <ScalarProperty Name="Fecha_Matricula" ColumnName="Fecha_Matricula" />
+                <ScalarProperty Name="Fecha_Validacion" ColumnName="Fecha_Validacion" />
+                <ScalarProperty Name="No_Puntos" ColumnName="No_Puntos" />
+                <ScalarProperty Name="No_RP" ColumnName="No_RP" />
+                <ScalarProperty Name="Tiempo_Servicio" ColumnName="Tiempo_Servicio" />
+                <ScalarProperty Name="Tipo_Programa" ColumnName="Tipo_Programa" />
+                <ScalarProperty Name="Estrategia" ColumnName="Estrategia" />
+                <ScalarProperty Name="No_Confidencial" ColumnName="No_Confidencial" />
+                <ScalarProperty Name="Saldo_Pendiente" ColumnName="Saldo_Pendiente" />
+                <ScalarProperty Name="Organizacion_idOrganizacion" ColumnName="Organizacion_idOrganizacion" />
+                <ScalarProperty Name="Titular_idTitular" ColumnName="Titular_idTitular" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Vigencia" ColumnName="Vigencia" />
+                <ScalarProperty Name="No_Consecutivo" ColumnName="No_Consecutivo" />
+                <ScalarProperty Name="Subgerente_idSubgerente" ColumnName="Subgerente_idSubgerente" />
+                <ScalarProperty Name="Supervisor_idSupervisor" ColumnName="Supervisor_idSupervisor" />
+                <ScalarProperty Name="Asesor_idAsesor" ColumnName="Asesor_idAsesor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organizacions">
+            <EntityTypeMapping TypeName="multilingualModel.organizacion">
+              <MappingFragment StoreEntitySet="organizacion">
+                <ScalarProperty Name="idOrganizacion" ColumnName="idOrganizacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Gerente" ColumnName="Gerente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pagos">
+            <EntityTypeMapping TypeName="multilingualModel.pago">
+              <MappingFragment StoreEntitySet="pagos">
+                <ScalarProperty Name="idPagos" ColumnName="idPagos" />
+                <ScalarProperty Name="Fecha_de_Pago" ColumnName="Fecha_de_Pago" />
+                <ScalarProperty Name="Cantidad_Recibida" ColumnName="Cantidad_Recibida" />
+                <ScalarProperty Name="Numero_Cuota" ColumnName="Numero_Cuota" />
+                <ScalarProperty Name="Mes_Pagado" ColumnName="Mes_Pagado" />
+                <ScalarProperty Name="Numero_Recibo" ColumnName="Numero_Recibo" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Tipo_Pago" ColumnName="Tipo_Pago" />
+                <ScalarProperty Name="Metodo_Pago" ColumnName="Metodo_Pago" />
+                <ScalarProperty Name="Matricula_idMatricula" ColumnName="Matricula_idMatricula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subgerentes">
+            <EntityTypeMapping TypeName="multilingualModel.subgerente">
+              <MappingFragment StoreEntitySet="subgerente">
+                <ScalarProperty Name="idSubgerente" ColumnName="idSubgerente" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Organizacion_idOrganizacion" ColumnName="Organizacion_idOrganizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="supervisors">
+            <EntityTypeMapping TypeName="multilingualModel.supervisor">
+              <MappingFragment StoreEntitySet="supervisor">
+                <ScalarProperty Name="idSupervisor" ColumnName="idSupervisor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Organizacion_idOrganizacion" ColumnName="Organizacion_idOrganizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="titulars">
+            <EntityTypeMapping TypeName="multilingualModel.titular">
+              <MappingFragment StoreEntitySet="titular">
+                <ScalarProperty Name="idTitular" ColumnName="idTitular" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono_Particular" ColumnName="Telefono_Particular" />
+                <ScalarProperty Name="Telefono_Oficina" ColumnName="Telefono_Oficina" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="Compania" ColumnName="Compania" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="Dom_Titular_idDom_Titular1" ColumnName="Dom_Titular_idDom_Titular1" />
+                <ScalarProperty Name="Telefono_Celular" ColumnName="Telefono_Celular" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="idiomas_has_alumno" TypeName="multilingualModel.idiomas_has_alumno" StoreEntitySet="idiomas_has_alumno">
+            <EndProperty Name="alumno">
+              <ScalarProperty Name="id_alumno" ColumnName="Alumno_id_alumno" />
+            </EndProperty>
+            <EndProperty Name="idiomas">
+              <ScalarProperty Name="idIdiomas" ColumnName="Idiomas_idIdiomas" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
