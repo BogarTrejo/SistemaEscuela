@@ -18,13 +18,17 @@ namespace SistemaEscuela.Model
         public Nullable<System.DateTime> Fecha_de_Pago { get; set; }
         public Nullable<decimal> Cantidad_Recibida { get; set; }
         public Nullable<int> Numero_Cuota { get; set; }
-        public Nullable<System.DateTime> Mes_Pagado { get; set; }
+        public string Mes_Pagado { get; set; }
         public Nullable<int> Numero_Recibo { get; set; }
         public string Observaciones { get; set; }
         public string Tipo_Pago { get; set; }
         public string Metodo_Pago { get; set; }
-        public int Matricula_idMatricula { get; set; }
+        public int Titular_idTitular { get; set; }
+        public Nullable<int> Numero_Factura { get; set; }
+        public string Elaboro { get; set; }
+        public Nullable<decimal> Interes { get; set; }
+        public Nullable<decimal> Promocion { get; set; }
     
-        public virtual matricula matricula { get; set; }
+        public virtual titular titular { get; set; }
     }
 }

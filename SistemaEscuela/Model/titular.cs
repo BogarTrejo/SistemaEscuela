@@ -17,6 +17,7 @@ namespace SistemaEscuela.Model
         public titular()
         {
             this.matriculas = new HashSet<matricula>();
+            this.pagos = new HashSet<pago>();
         }
     
         public int idTitular { get; set; }
@@ -29,8 +30,10 @@ namespace SistemaEscuela.Model
         public string Profesion { get; set; }
         public int Dom_Titular_idDom_Titular1 { get; set; }
         public string Telefono_Celular { get; set; }
+        public Nullable<int> No_Confidencial { get; set; }
     
         public virtual dom_titular dom_titular { get; set; }
         public virtual ICollection<matricula> matriculas { get; set; }
+        public virtual ICollection<pago> pagos { get; set; }
     }
 }

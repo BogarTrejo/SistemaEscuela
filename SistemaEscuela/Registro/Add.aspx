@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="SistemaEscuela.Registro.Add" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .auto-style1
+        {
+            height: 66px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
  
@@ -96,12 +102,6 @@
             </td>
         </tr>
         <tr>
-            <th>Email del beneficiario:</th>
-            <td>
-                <asp:TextBox ID="txtEmailEstudiante" runat="server" />
-            </td>
-        </tr>
-        <tr>
             <th>RFC del Titular:</th>
             <td>
                 <asp:TextBox ID="txtRfc" runat="server" />
@@ -151,8 +151,8 @@
             </td>
         </tr>
         <tr>
-            <th>Idioma: </th>
-            <td>
+            <th class="auto-style1">Idioma: </th>
+            <td class="auto-style1">
                 <asp:EntityDataSource ID="EntityIdioma" runat="server" ConnectionString="name=multilingualEntities" DefaultContainerName="multilingualEntities" EnableFlattening="False" EntitySetName="idiomas" Select="it.[idIdiomas], it.[Nombre] +' - ' + it.[Nivel] as Value"></asp:EntityDataSource>
                 <asp:DropDownList ID="ddlIdioma" runat="server" DataSourceID="EntityIdioma" DataTextField="Value" DataValueField="idIdiomas"></asp:DropDownList>
             </td>
@@ -181,7 +181,7 @@
                 <asp:TextBox ID="txtTiempoServicio" runat="server" />
             </td>
         </tr>
-        <tr>
+<%--        <tr>
             <th>Pago de Inscripción:</th>
             <td>
                 <asp:TextBox ID="txtPagoInscripcion" runat="server" />
@@ -192,7 +192,7 @@
             <td>
                 <asp:Calendar ID="cldFechaPago" runat="server"></asp:Calendar>
             </td>
-        </tr>
+        </tr>--%>
         <tr>
             <th>
                 Cuotas:

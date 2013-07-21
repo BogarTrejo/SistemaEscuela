@@ -17,7 +17,6 @@ namespace SistemaEscuela.Model
         public matricula()
         {
             this.alumnoes = new HashSet<alumno>();
-            this.pagos = new HashSet<pago>();
         }
     
         public int idMatricula { get; set; }
@@ -33,12 +32,11 @@ namespace SistemaEscuela.Model
         public string Tiempo_Servicio { get; set; }
         public string Tipo_Programa { get; set; }
         public string Estrategia { get; set; }
-        public Nullable<int> No_Confidencial { get; set; }
         public Nullable<decimal> Saldo_Pendiente { get; set; }
         public int Organizacion_idOrganizacion { get; set; }
         public int Titular_idTitular { get; set; }
         public string Observaciones { get; set; }
-        public Nullable<System.DateTime> Vigencia { get; set; }
+        public string Vigencia { get; set; }
         public Nullable<int> No_Consecutivo { get; set; }
         public int Subgerente_idSubgerente { get; set; }
         public int Supervisor_idSupervisor { get; set; }
@@ -50,6 +48,5 @@ namespace SistemaEscuela.Model
         public virtual subgerente subgerente { get; set; }
         public virtual supervisor supervisor { get; set; }
         public virtual titular titular { get; set; }
-        public virtual ICollection<pago> pagos { get; set; }
     }
 }

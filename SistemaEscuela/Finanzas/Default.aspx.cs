@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SistemaEscuela.Model;
 
 namespace SistemaEscuela.Finanzas
 {
@@ -13,5 +14,13 @@ namespace SistemaEscuela.Finanzas
         {
 
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+
     }
 }

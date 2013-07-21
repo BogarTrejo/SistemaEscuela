@@ -171,7 +171,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Finanzas\agregarPago.aspx" />
     <Content Include="Finanzas\Default.aspx" />
+    <Content Include="Finanzas\editarAlumno.aspx" />
+    <Content Include="Finanzas\listadoAlumnos.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -203,6 +206,7 @@
       <DependentUpon>multilingual.edmx</DependentUpon>
       <LastGenOutput>multilingual.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\desarrollo.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Registro\Add.aspx" />
     <Content Include="Registro\Index.aspx" />
@@ -275,12 +279,33 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Finanzas\agregarPago.aspx.cs">
+      <DependentUpon>agregarPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finanzas\agregarPago.aspx.designer.cs">
+      <DependentUpon>agregarPago.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Finanzas\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Finanzas\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Finanzas\editarAlumno.aspx.cs">
+      <DependentUpon>editarAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finanzas\editarAlumno.aspx.designer.cs">
+      <DependentUpon>editarAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Finanzas\listadoAlumnos.aspx.cs">
+      <DependentUpon>listadoAlumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finanzas\listadoAlumnos.aspx.designer.cs">
+      <DependentUpon>listadoAlumnos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

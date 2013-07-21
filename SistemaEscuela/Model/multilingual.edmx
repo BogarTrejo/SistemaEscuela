@@ -53,8 +53,8 @@
             <End Role="titular" EntitySet="titular" />
             <End Role="matricula" EntitySet="matricula" />
           </AssociationSet>
-          <AssociationSet Name="fk_Pagos_Matricula1" Association="multilingualModel.Store.fk_Pagos_Matricula1">
-            <End Role="matricula" EntitySet="matricula" />
+          <AssociationSet Name="fk_Pagos_Titular1" Association="multilingualModel.Store.fk_Pagos_Titular1">
+            <End Role="titular" EntitySet="titular" />
             <End Role="pagos" EntitySet="pagos" />
           </AssociationSet>
           <AssociationSet Name="fk_Subgerente_Organizacion1" Association="multilingualModel.Store.fk_Subgerente_Organizacion1">
@@ -130,12 +130,11 @@
           <Property Name="Tiempo_Servicio" Type="varchar" MaxLength="45" />
           <Property Name="Tipo_Programa" Type="varchar" MaxLength="45" />
           <Property Name="Estrategia" Type="varchar" MaxLength="45" />
-          <Property Name="No_Confidencial" Type="int" />
           <Property Name="Saldo_Pendiente" Type="decimal" />
           <Property Name="Organizacion_idOrganizacion" Type="int" Nullable="false" />
           <Property Name="Titular_idTitular" Type="int" Nullable="false" />
           <Property Name="Observaciones" Type="text" />
-          <Property Name="Vigencia" Type="datetime" />
+          <Property Name="Vigencia" Type="varchar" MaxLength="45" />
           <Property Name="No_Consecutivo" Type="int" />
           <Property Name="Subgerente_idSubgerente" Type="int" Nullable="false" />
           <Property Name="Supervisor_idSupervisor" Type="int" Nullable="false" />
@@ -157,12 +156,16 @@
           <Property Name="Fecha_de_Pago" Type="datetime" />
           <Property Name="Cantidad_Recibida" Type="decimal" />
           <Property Name="Numero_Cuota" Type="int" />
-          <Property Name="Mes_Pagado" Type="datetime" />
+          <Property Name="Mes_Pagado" Type="varchar" MaxLength="45" />
           <Property Name="Numero_Recibo" Type="int" />
           <Property Name="Observaciones" Type="varchar" MaxLength="100" />
           <Property Name="Tipo_Pago" Type="varchar" MaxLength="45" />
           <Property Name="Metodo_Pago" Type="varchar" MaxLength="45" />
-          <Property Name="Matricula_idMatricula" Type="int" Nullable="false" />
+          <Property Name="Titular_idTitular" Type="int" Nullable="false" />
+          <Property Name="Numero_Factura" Type="int" />
+          <Property Name="Elaboro" Type="varchar" MaxLength="45" />
+          <Property Name="Interes" Type="decimal" />
+          <Property Name="Promocion" Type="decimal" />
         </EntityType>
         <EntityType Name="subgerente">
           <Key>
@@ -194,6 +197,7 @@
           <Property Name="Profesion" Type="varchar" MaxLength="45" />
           <Property Name="Dom_Titular_idDom_Titular1" Type="int" Nullable="false" />
           <Property Name="Telefono_Celular" Type="varchar" MaxLength="45" />
+          <Property Name="No_Confidencial" Type="int" />
         </EntityType>
         <Association Name="fk_Alumno_Matricula1">
           <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="1" />
@@ -303,15 +307,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Pagos_Matricula1">
-          <End Role="matricula" Type="multilingualModel.Store.matricula" Multiplicity="1" />
+        <Association Name="fk_Pagos_Titular1">
+          <End Role="titular" Type="multilingualModel.Store.titular" Multiplicity="1" />
           <End Role="pagos" Type="multilingualModel.Store.pagos" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="matricula">
-              <PropertyRef Name="idMatricula" />
+            <Principal Role="titular">
+              <PropertyRef Name="idTitular" />
             </Principal>
             <Dependent Role="pagos">
-              <PropertyRef Name="Matricula_idMatricula" />
+              <PropertyRef Name="Titular_idTitular" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -399,10 +403,6 @@
             <End Role="titular" EntitySet="titulars" />
             <End Role="matricula" EntitySet="matriculas" />
           </AssociationSet>
-          <AssociationSet Name="fk_Pagos_Matricula1" Association="multilingualModel.fk_Pagos_Matricula1">
-            <End Role="matricula" EntitySet="matriculas" />
-            <End Role="pagos" EntitySet="pagos" />
-          </AssociationSet>
           <AssociationSet Name="fk_Subgerente_Organizacion1" Association="multilingualModel.fk_Subgerente_Organizacion1">
             <End Role="organizacion" EntitySet="organizacions" />
             <End Role="subgerente" EntitySet="subgerentes" />
@@ -410,6 +410,10 @@
           <AssociationSet Name="fk_Supervisor_Organizacion1" Association="multilingualModel.fk_Supervisor_Organizacion1">
             <End Role="organizacion" EntitySet="organizacions" />
             <End Role="supervisor" EntitySet="supervisors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pagos_Titular1" Association="multilingualModel.fk_Pagos_Titular1">
+            <End Role="titular" EntitySet="titulars" />
+            <End Role="pagos" EntitySet="pagos" />
           </AssociationSet>
           <AssociationSet Name="idiomas_has_alumno" Association="multilingualModel.idiomas_has_alumno">
             <End Role="alumno" EntitySet="alumnoes" />
@@ -474,12 +478,11 @@
           <Property Name="Tiempo_Servicio" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="Tipo_Programa" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="Estrategia" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="No_Confidencial" Type="Int32" />
           <Property Name="Saldo_Pendiente" Type="Decimal" />
           <Property Name="Organizacion_idOrganizacion" Type="Int32" Nullable="false" />
           <Property Name="Titular_idTitular" Type="Int32" Nullable="false" />
           <Property Name="Observaciones" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
-          <Property Name="Vigencia" Type="DateTime" />
+          <Property Name="Vigencia" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="No_Consecutivo" Type="Int32" />
           <Property Name="Subgerente_idSubgerente" Type="Int32" Nullable="false" />
           <Property Name="Supervisor_idSupervisor" Type="Int32" Nullable="false" />
@@ -490,7 +493,6 @@
           <NavigationProperty Name="subgerente" Relationship="multilingualModel.fk_Matricula_Subgerente1" FromRole="matricula" ToRole="subgerente" />
           <NavigationProperty Name="supervisor" Relationship="multilingualModel.fk_Matricula_Supervisor1" FromRole="matricula" ToRole="supervisor" />
           <NavigationProperty Name="titular" Relationship="multilingualModel.fk_Matricula_Titular1" FromRole="matricula" ToRole="titular" />
-          <NavigationProperty Name="pagos" Relationship="multilingualModel.fk_Pagos_Matricula1" FromRole="matricula" ToRole="pagos" />
         </EntityType>
         <EntityType Name="organizacion">
           <Key>
@@ -512,13 +514,17 @@
           <Property Name="Fecha_de_Pago" Type="DateTime" />
           <Property Name="Cantidad_Recibida" Type="Decimal" />
           <Property Name="Numero_Cuota" Type="Int32" />
-          <Property Name="Mes_Pagado" Type="DateTime" />
+          <Property Name="Mes_Pagado" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="Numero_Recibo" Type="Int32" />
           <Property Name="Observaciones" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="Tipo_Pago" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="Metodo_Pago" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="Matricula_idMatricula" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="matricula" Relationship="multilingualModel.fk_Pagos_Matricula1" FromRole="pagos" ToRole="matricula" />
+          <Property Name="Titular_idTitular" Type="Int32" Nullable="false" />
+          <Property Name="Numero_Factura" Type="Int32" />
+          <Property Name="Elaboro" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Interes" Type="Decimal" />
+          <Property Name="Promocion" Type="Decimal" />
+          <NavigationProperty Name="titular" Relationship="multilingualModel.fk_Pagos_Titular1" FromRole="pagos" ToRole="titular" />
         </EntityType>
         <EntityType Name="subgerente">
           <Key>
@@ -554,8 +560,10 @@
           <Property Name="Profesion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="Dom_Titular_idDom_Titular1" Type="Int32" Nullable="false" />
           <Property Name="Telefono_Celular" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="No_Confidencial" Type="Int32" />
           <NavigationProperty Name="dom_titular" Relationship="multilingualModel.fk_Titular_Dom_Titular1" FromRole="titular" ToRole="dom_titular" />
           <NavigationProperty Name="matriculas" Relationship="multilingualModel.fk_Matricula_Titular1" FromRole="titular" ToRole="matricula" />
+          <NavigationProperty Name="pagos" Relationship="multilingualModel.fk_Pagos_Titular1" FromRole="titular" ToRole="pagos" />
         </EntityType>
         <Association Name="fk_Alumno_Matricula1">
           <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="1" />
@@ -653,18 +661,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Pagos_Matricula1">
-          <End Role="matricula" Type="multilingualModel.matricula" Multiplicity="1" />
-          <End Role="pagos" Type="multilingualModel.pago" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="matricula">
-              <PropertyRef Name="idMatricula" />
-            </Principal>
-            <Dependent Role="pagos">
-              <PropertyRef Name="Matricula_idMatricula" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_Subgerente_Organizacion1">
           <End Role="organizacion" Type="multilingualModel.organizacion" Multiplicity="1" />
           <End Role="subgerente" Type="multilingualModel.subgerente" Multiplicity="*" />
@@ -686,6 +682,18 @@
             </Principal>
             <Dependent Role="supervisor">
               <PropertyRef Name="Organizacion_idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pagos_Titular1">
+          <End Role="titular" Type="multilingualModel.titular" Multiplicity="1" />
+          <End Role="pagos" Type="multilingualModel.pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="titular">
+              <PropertyRef Name="idTitular" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="Titular_idTitular" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -754,7 +762,6 @@
                 <ScalarProperty Name="Tiempo_Servicio" ColumnName="Tiempo_Servicio" />
                 <ScalarProperty Name="Tipo_Programa" ColumnName="Tipo_Programa" />
                 <ScalarProperty Name="Estrategia" ColumnName="Estrategia" />
-                <ScalarProperty Name="No_Confidencial" ColumnName="No_Confidencial" />
                 <ScalarProperty Name="Saldo_Pendiente" ColumnName="Saldo_Pendiente" />
                 <ScalarProperty Name="Organizacion_idOrganizacion" ColumnName="Organizacion_idOrganizacion" />
                 <ScalarProperty Name="Titular_idTitular" ColumnName="Titular_idTitular" />
@@ -788,7 +795,11 @@
                 <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
                 <ScalarProperty Name="Tipo_Pago" ColumnName="Tipo_Pago" />
                 <ScalarProperty Name="Metodo_Pago" ColumnName="Metodo_Pago" />
-                <ScalarProperty Name="Matricula_idMatricula" ColumnName="Matricula_idMatricula" />
+                <ScalarProperty Name="Titular_idTitular" ColumnName="Titular_idTitular" />
+                <ScalarProperty Name="Numero_Factura" ColumnName="Numero_Factura" />
+                <ScalarProperty Name="Elaboro" ColumnName="Elaboro" />
+                <ScalarProperty Name="Interes" ColumnName="Interes" />
+                <ScalarProperty Name="Promocion" ColumnName="Promocion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -823,6 +834,7 @@
                 <ScalarProperty Name="Profesion" ColumnName="Profesion" />
                 <ScalarProperty Name="Dom_Titular_idDom_Titular1" ColumnName="Dom_Titular_idDom_Titular1" />
                 <ScalarProperty Name="Telefono_Celular" ColumnName="Telefono_Celular" />
+                <ScalarProperty Name="No_Confidencial" ColumnName="No_Confidencial" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

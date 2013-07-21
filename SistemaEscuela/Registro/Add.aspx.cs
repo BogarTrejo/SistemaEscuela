@@ -102,7 +102,7 @@ namespace SistemaEscuela.Registro
             matricula nuevaMatricula = new matricula()
             {
                 idMatricula = random.Next(int.MaxValue),
-                Vigencia = DateTime.Parse(txtVigencia.Text),
+                Vigencia = txtVigencia.Text,
                 No_Consecutivo = Convert.ToInt32(txtNoConsec.Text),
                 No_Puntos = Convert.ToInt32(txtNoPuntos.Text),
                 Numero_Contrato = Convert.ToInt32(txtNoContrato.Text),
@@ -122,15 +122,14 @@ namespace SistemaEscuela.Registro
                 Cuota = Convert.ToInt32(txtCuotas.Text)
             };
 
-            pago pagoInscripción = new pago()
-            {
-                Cantidad_Recibida = Convert.ToDecimal(txtPagoInscripcion.Text),
-                Numero_Cuota = Convert.ToInt32(txtCuotas.Text),
-                Metodo_Pago = ddlTipoPago.SelectedValue,
-                Fecha_de_Pago = cldFechaPago.SelectedDate,
-                Tipo_Pago = "Inscripción",
-                Matricula_idMatricula = nuevaMatricula.idMatricula
-            };
+            //pago pagoInscripción = new pago()
+            //{
+            //    Cantidad_Recibida = Convert.ToDecimal(txtPagoInscripcion.Text),
+            //    Numero_Cuota = Convert.ToInt32(txtCuotas.Text),
+            //    Metodo_Pago = ddlTipoPago.SelectedValue,
+            //    Fecha_de_Pago = cldFechaPago.SelectedDate,
+            //    Tipo_Pago = "Inscripción"
+            //};
 
 
             titular titular = (titular)Session[Add.titularSessionId];
@@ -167,6 +166,8 @@ namespace SistemaEscuela.Registro
                     Dom_Titular_idDom_Titular1 = domicilio.idDom_Titular
                 };
             }
+
+            //pagoInscripción.Titular_idTitular = titular.idTitular;
 
             int alumnoId = random.Next(int.MaxValue);
             alumno nuevoAlumno = new alumno()
@@ -225,8 +226,8 @@ namespace SistemaEscuela.Registro
 
                 context.matriculas.Add(nuevaMatricula);
                 context.SaveChanges();
-                context.pagos.Add(pagoInscripción);
-                context.SaveChanges();
+                //context.pagos.Add(pagoInscripción);
+                //context.SaveChanges();
 
 
                 context.alumnoes.Add(nuevoAlumno);

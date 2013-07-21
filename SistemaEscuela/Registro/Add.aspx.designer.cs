@@ -139,15 +139,6 @@ namespace SistemaEscuela.Registro {
         protected global::System.Web.UI.WebControls.TextBox txtNombreEstudiante;
         
         /// <summary>
-        /// Control txtEmailEstudiante.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailEstudiante;
-        
-        /// <summary>
         /// Control txtRfc.
         /// </summary>
         /// <remarks>
@@ -272,24 +263,6 @@ namespace SistemaEscuela.Registro {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTiempoServicio;
-        
-        /// <summary>
-        /// Control txtPagoInscripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPagoInscripcion;
-        
-        /// <summary>
-        /// Control cldFechaPago.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cldFechaPago;
         
         /// <summary>
         /// Control txtCuotas.

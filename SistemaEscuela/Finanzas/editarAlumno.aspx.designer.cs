@@ -10,42 +10,60 @@
 namespace SistemaEscuela.Finanzas {
     
     
-    public partial class Default {
+    public partial class editarAlumno {
         
         /// <summary>
-        /// Control txtBuscarAlumno.
+        /// Control EntityMatricula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuscarAlumno;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityMatricula;
         
         /// <summary>
-        /// Control btnBuscar.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Control entityBuscar.
+        /// Control txtFechaVerif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource entityBuscar;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaVerif;
         
         /// <summary>
-        /// Control gridAlumnos.
+        /// Control btnGuardarVerif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridAlumnos;
+        protected global::System.Web.UI.WebControls.Button btnGuardarVerif;
+        
+        /// <summary>
+        /// Control entitySTatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource entitySTatus;
+        
+        /// <summary>
+        /// Control DetailsView1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
     }
 }
