@@ -58,5 +58,8 @@ namespace SistemaEscuela.Finanzas
                 context.SaveChanges();
             }
         }
+
+
+
     }
 }

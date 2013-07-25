@@ -15,20 +15,20 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Pagos</h2>
-    <table>
-        <tr>
-            <th>Fecha Reporte</th>
-            <th>Precio Básico</th>
-            <th>Cuota Inicial</th>
-            <th>Saldo</th>
-            <th>Vencimiento</th>
-            <th>No. Cuotas</th>
-            <th>Cuota Mensual</th>
-            <th>No. Contrato</th>
-            <th>Elaboro</th>
-            <th>RP</th>
+    <table cellspacing="0" cellpadding="4" id="MainContent_gridPagos" style="color:#333333;border-collapse:collapse;">
+        <tr style="color:White;background-color:#5D7B9D;font-weight:bold;">
+            <th scope="col">Fecha Reporte</th>
+            <th scope="col">Precio Básico</th>
+            <th scope="col">Cuota Inicial</th>
+            <th scope="col">Saldo</th>
+            <th scope="col">Vencimiento</th>
+            <th scope="col">No. Cuotas</th>
+            <th scope="col">Cuota Mensual</th>
+            <th scope="col">No. Contrato</th>
+            <th scope="col">Elaboro</th>
+            <th scope="col">RP</th>
         </tr>
-        <tr>
+        <tr style="color:#333333;background-color:#F7F6F3;">
             <td>
                 <asp:Label runat="server" ID="lblFecha" />
             </td>
@@ -68,17 +68,28 @@
             <asp:QueryStringParameter DbType="Int32" Name="Titular_idTitular" QueryStringField="id" />
         </WhereParameters>
     </asp:EntityDataSource>
-    <asp:GridView ID="gridPagos" runat="server" AutoGenerateColumns="False" DataSourceID="entityPagos">
+    <asp:GridView ID="gridPagos" runat="server" AutoGenerateColumns="False" DataSourceID="entityPagos" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
-            <asp:BoundField DataField="Fecha_de_Pago" HeaderText="Fecha_de_Pago" ReadOnly="True" SortExpression="Fecha_de_Pago" />
-            <asp:BoundField DataField="Cantidad_Recibida" HeaderText="Cantidad_Recibida" ReadOnly="True" SortExpression="Cantidad_Recibida" />
-            <asp:BoundField DataField="Mes_Pagado" HeaderText="Mes_Pagado" ReadOnly="True" SortExpression="Mes_Pagado" />
-            <asp:BoundField DataField="Numero_Cuota" HeaderText="Numero_Cuota" ReadOnly="True" SortExpression="Numero_Cuota" />
-            <asp:BoundField DataField="Metodo_Pago" HeaderText="Metodo_Pago" ReadOnly="True" SortExpression="Metodo_Pago" />
-            <asp:BoundField DataField="Elaboro" HeaderText="Elaboro" ReadOnly="True" SortExpression="Elaboro" />
-            <asp:BoundField DataField="Tipo_Pago" HeaderText="Tipo_Pago" ReadOnly="True" SortExpression="Tipo_Pago" />
+            <asp:BoundField DataField="Fecha_de_Pago" HeaderText="Fecha de Pago" ReadOnly="True" SortExpression="Fecha_de_Pago" />
+            <asp:BoundField DataField="Cantidad_Recibida" HeaderText="Cantidad Recibida" ReadOnly="True" SortExpression="Cantidad_Recibida" />
+            <asp:BoundField DataField="Mes_Pagado" HeaderText="Mes Pagado" ReadOnly="True" SortExpression="Mes_Pagado" />
+            <asp:BoundField DataField="Numero_Cuota" HeaderText="Número Cuota" ReadOnly="True" SortExpression="Numero_Cuota" />
+            <asp:BoundField DataField="Metodo_Pago" HeaderText="Método Pago" ReadOnly="True" SortExpression="Metodo_Pago" />
+            <asp:BoundField DataField="Elaboro" HeaderText="Elaboró" ReadOnly="True" SortExpression="Elaboro" />
+            <asp:BoundField DataField="Tipo_Pago" HeaderText="Tipo Pago" ReadOnly="True" SortExpression="Tipo_Pago" />
             <asp:BoundField DataField="Observaciones" HeaderText="Observaciones" ReadOnly="True" SortExpression="Observaciones" />
         </Columns>
+        <EditRowStyle BackColor="#999999" />
+        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
 
     <h1>Realizar pago</h1>
@@ -115,7 +126,7 @@
             </td>
         </tr>
         <tr>
-            <th>Recibido:</th>R
+            <th>Recibido:</th>
             <td><asp:TextBox ID="txtRecibido" runat="server" /></td>
         </tr>
         <tr>
