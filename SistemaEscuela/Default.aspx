@@ -25,10 +25,6 @@
             <p>&nbsp;</p>
         </li>
         <li class="three">
-            <h5><a href="Academico/Default.aspx">Manejo academico</a></h5>
-            <p>&nbsp;</p>
-        </li>
-        <li class="four">
             <h5><a href="Admin/Default.aspx"> Administración del Sistema</a></h5>
             <p>&nbsp;</p>
         </li>

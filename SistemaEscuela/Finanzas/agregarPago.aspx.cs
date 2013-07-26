@@ -57,7 +57,7 @@ namespace SistemaEscuela.Finanzas
                         (
                             from p in context.pagos
                             where p.Titular_idTitular == id
-                            orderby p.Fecha_de_Pago descending
+                            orderby p.Fecha_de_Pago ascending
                             select p.Cantidad_Recibida                            
                         ).FirstOrDefault();                    
                 }
