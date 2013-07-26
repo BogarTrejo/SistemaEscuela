@@ -31,6 +31,24 @@ namespace SistemaEscuela.Admin {
         protected global::System.Web.UI.WebControls.DetailsView DetailsView4;
         
         /// <summary>
+        /// Control entityEstrategia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource entityEstrategia;
+        
+        /// <summary>
+        /// Control DetailsView5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView5;
+        
+        /// <summary>
         /// Control entityOrg.
         /// </summary>
         /// <remarks>

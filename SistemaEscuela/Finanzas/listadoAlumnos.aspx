@@ -13,7 +13,7 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <a href="agregarPago.aspx" runat="server" id="agregarPagoUrl"> Efectuar pago </a>
+    <a href="agregarPago.aspx" runat="server" id="agregarPagoUrl"> Efectuar/Consultar pago </a>
     <h2>Alumnos registrados de <%: Request.QueryString["nombre"] %></h2>
     <br />
     <table cellspacing="0" cellpadding="4" id="MainContent_gridPagos" style="color:#333333;border-collapse:collapse;">

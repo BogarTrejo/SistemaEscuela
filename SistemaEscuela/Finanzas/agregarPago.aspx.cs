@@ -95,7 +95,7 @@ namespace SistemaEscuela.Finanzas
             pago nuevoPago = new pago()
             {
                 Cantidad_Recibida = Convert.ToInt32(txtRecibido.Text),
-                Fecha_de_Pago = calendarFecha.SelectedDate,
+                Fecha_de_Pago = DateTime.Parse(txtFecha.Text),
                 Metodo_Pago = ddlMetodoPago.SelectedValue,
                 Numero_Cuota = Convert.ToInt32(txtNoCuota.Text),
                 Numero_Factura = !String.IsNullOrEmpty(txtNoFactura.Text) ? Convert.ToInt32(txtNoFactura.Text) : 0,
@@ -105,7 +105,9 @@ namespace SistemaEscuela.Finanzas
                 Observaciones = txtObservacion.Text,
                 Elaboro = txtElaboro.Text,
                 Interes = !String.IsNullOrEmpty(txtInteres.Text) ? Convert.ToInt32(txtInteres.Text) : 0,
-                Promocion = !String.IsNullOrEmpty(txtPromo.Text) ? Convert.ToInt32(txtPromo.Text) : 0
+                Promocion = !String.IsNullOrEmpty(txtPromo.Text) ? Convert.ToInt32(txtPromo.Text) : 0,
+                Mes_Pagado = ddlMesPagado.SelectedValue
+                
             };
 
             using (var context = new multilingualEntities())

@@ -16,6 +16,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <ul>
         <li><a href="Consultas.aspx">Consultas</a></li>
-        <li><a href="Admin.aspx">Manejar Organizaciones</a></li>
+        <li><a href="Admin.aspx">Manejar Organizaciones e Idiomas</a></li>
     </ul>
 </asp:Content>

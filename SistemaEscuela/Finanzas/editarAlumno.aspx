@@ -1,12 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="editarAlumno.aspx.cs" Inherits="SistemaEscuela.Finanzas.editarAlumno" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+
+
+
+    <link  rel="stylesheet" href="../Content/themes/base/jquery-ui.css" />    
     <script type="text/javascript" src="../Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-ui-1.8.20.min.js"></script>
+    
     <script type="text/javascript">
 
-        $(document).ready(function () {            
+        $(document).ready(function () {
+
             $("#DropDownList1").change(function () {
                 $("#hiddenField").val($(this).val());
             });
+
+
+            $("#txtFechaVerif").datepicker();
 
         });
     </script>
@@ -47,7 +57,7 @@
         <tr>
             <th>Fecha de verificación:</th>
             <td>
-                <asp:TextBox ID="txtFechaVerif" runat="server" />
+                <asp:TextBox ID="txtFechaVerif" runat="server" ClientIDMode="Static"/>
 
             </td>
             <td>

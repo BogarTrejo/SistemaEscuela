@@ -106,7 +106,7 @@ namespace SistemaEscuela.Registro
                 No_Consecutivo = Convert.ToInt32(txtNoConsec.Text),
                 No_Puntos = Convert.ToInt32(txtNoPuntos.Text),
                 Numero_Contrato = Convert.ToInt32(txtNoContrato.Text),
-                Fecha_Matricula = cldFecha.SelectedDate,
+                Fecha_Matricula = DateTime.Parse(txtFecha.Text),
                 No_RP = Convert.ToInt32(txtNoRp.Text),
                 Organizacion_idOrganizacion = Convert.ToInt32(ddlOrganizacion.SelectedValue),
                 Subgerente_idSubgerente = Convert.ToInt32(ddlSubGerente.SelectedValue),
@@ -118,7 +118,7 @@ namespace SistemaEscuela.Registro
                 Costo_Total = Convert.ToDecimal(txtCostoTotal.Text),
                 Estatus = ddlStatus.SelectedValue,
                 Observaciones = txtObservacionesStatus.Text,
-                Estrategia = txtEstrategia.Text,
+                Estrategia = ddlEstrategia.SelectedValue,
                 Cuota = Convert.ToInt32(txtCuotas.Text)
             };
 

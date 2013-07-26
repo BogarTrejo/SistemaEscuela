@@ -327,6 +327,9 @@
     <Compile Include="Model\dom_titular.cs">
       <DependentUpon>multilingual.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\estrategia.cs">
+      <DependentUpon>multilingual.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\idioma.cs">
       <DependentUpon>multilingual.tt</DependentUpon>
     </Compile>

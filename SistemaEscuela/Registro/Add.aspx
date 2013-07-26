@@ -6,6 +6,19 @@
             height: 66px;
         }
     </style>
+
+    <link  rel="stylesheet" href="../Content/themes/base/jquery-ui.css" />
+    <script type="text/javascript" src="../Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-ui-1.8.20.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#txtFecha").datepicker();            
+
+        });
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
  
@@ -74,7 +87,8 @@
         <tr>
             <th>Fecha:</th>
             <td>
-                <asp:Calendar ID="cldFecha" runat="server"></asp:Calendar>
+                <%--<asp:Calendar ID="cldFecha" runat="server"></asp:Calendar>--%>
+                <asp:TextBox ID="txtFecha" runat="server" ClientIDMode="Static" />
             </td>
         </tr>
         <tr>
@@ -153,14 +167,14 @@
         <tr>
             <th class="auto-style1">Idioma: </th>
             <td class="auto-style1">
-                <asp:EntityDataSource ID="EntityIdioma" runat="server" ConnectionString="name=multilingualEntities" DefaultContainerName="multilingualEntities" EnableFlattening="False" EntitySetName="idiomas" Select="it.[idIdiomas], it.[Nombre] +' - ' + it.[Nivel] as Value"></asp:EntityDataSource>
-                <asp:DropDownList ID="ddlIdioma" runat="server" DataSourceID="EntityIdioma" DataTextField="Value" DataValueField="idIdiomas"></asp:DropDownList>
+                <asp:EntityDataSource ID="EntityIdioma" runat="server" ConnectionString="name=multilingualEntities" DefaultContainerName="multilingualEntities" EnableFlattening="False" EntitySetName="idiomas" Select="it.[Nombre], it.[idIdiomas]"></asp:EntityDataSource>
+                <asp:DropDownList ID="ddlIdioma" runat="server" DataSourceID="EntityIdioma" DataTextField="Nombre" DataValueField="idIdiomas"></asp:DropDownList>
             </td>
         </tr>
         <tr>
             <th>Idioma Opcional: </th>
             <td>                
-                <asp:DropDownList ID="ddlIdiomaOpcional" runat="server" DataSourceID="EntityIdioma" DataTextField="Value" DataValueField="idIdiomas"></asp:DropDownList>
+                <asp:DropDownList ID="ddlIdiomaOpcional" runat="server" DataSourceID="EntityIdioma" DataTextField="Nombre" DataValueField="idIdiomas"></asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -245,7 +259,9 @@
         <tr>
             <th>Estrategia:</th>
             <td>
-                <asp:TextBox ID="txtEstrategia" runat="server" />
+                <asp:EntityDataSource ID="entityEstrategia" runat="server" ConnectionString="name=multilingualEntities" DefaultContainerName="multilingualEntities" EnableFlattening="False" EntitySetName="estrategias" Select="it.[Estrategia1]"></asp:EntityDataSource>
+                <asp:DropDownList ID="ddlEstrategia" runat="server" DataSourceID="entityEstrategia" DataTextField="Estrategia1" DataValueField="Estrategia1"></asp:DropDownList>
+                <%--<asp:TextBox ID="txtEstrategia" runat="server" />--%>
             </td>
         </tr>
         <tr>

@@ -1,5 +1,18 @@
 ﻿<%@ Page Title="Efectuar Pagos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="agregarPago.aspx.cs" Inherits="SistemaEscuela.Finanzas.agregarPago" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <link  rel="stylesheet" href="../Content/themes/base/jquery-ui.css" />    
+    <script type="text/javascript" src="../Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-ui-1.8.20.min.js"></script>
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $("#txtFecha").datepicker();
+
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
     <section class="featured">
@@ -103,7 +116,8 @@
         <tr>
             <th>Fecha:</th>
             <td>
-                <asp:Calendar ID="calendarFecha" runat="server"></asp:Calendar>
+                <%--<asp:Calendar ID="calendarFecha" runat="server"></asp:Calendar>--%>
+                <asp:TextBox ID="txtFecha" runat="server" ClientIDMode="Static"/>
             </td>
         </tr>
         <tr>
