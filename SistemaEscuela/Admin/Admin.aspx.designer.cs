@@ -13,6 +13,24 @@ namespace SistemaEscuela.Admin {
     public partial class Admin {
         
         /// <summary>
+        /// Control entityIdiomas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource entityIdiomas;
+        
+        /// <summary>
+        /// Control DetailsView4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView4;
+        
+        /// <summary>
         /// Control entityOrg.
         /// </summary>
         /// <remarks>

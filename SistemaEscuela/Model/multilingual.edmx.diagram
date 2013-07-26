@@ -4,10 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ef835f8d88d4491e85b1c87990cde186" Name="Diagrama1">
+      <Diagram DiagramId="6fde845971254063bf7bf34da0ec5c24" Name="Diagrama1">
         <EntityTypeShape EntityType="multilingualModel.alumno" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="multilingualModel.asesor" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="multilingualModel.dom_titular" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="multilingualModel.estrategia" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="multilingualModel.idioma" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="multilingualModel.matricula" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="multilingualModel.organizacion" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />

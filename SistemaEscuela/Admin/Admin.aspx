@@ -14,6 +14,22 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <h2>Idiomas</h2>
+    <asp:EntityDataSource ID="entityIdiomas" runat="server" ConnectionString="name=multilingualEntities" DefaultContainerName="multilingualEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="idiomas"></asp:EntityDataSource>
+    <asp:DetailsView ID="DetailsView4" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" CellPadding="4" DataKeyNames="idIdiomas" DataSourceID="entityIdiomas" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+        <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+        <EditRowStyle BackColor="#999999" />
+        <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+        <Fields>
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+            <asp:CommandField DeleteText="Eliminar" EditText="Editar" InsertText="Agregar" NewText="Nuevo" ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" UpdateText="Actualizar" />
+        </Fields>
+        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+    </asp:DetailsView>
     <h1>Organizaciones</h1>
     <fieldset>
         <legend>Organizaciones</legend>    
