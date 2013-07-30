@@ -70,7 +70,7 @@ namespace SistemaEscuela.Finanzas
 
                     var alumnos =
                         (
-                            from a in context.alumnoes
+                            from a in context.alumnoes.Include("idiomas")
                             where matriculas.Contains(a.Matricula_idMatricula)
                             select a
                         ).ToList();

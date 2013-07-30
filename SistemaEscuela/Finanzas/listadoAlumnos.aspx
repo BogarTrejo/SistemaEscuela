@@ -36,7 +36,13 @@
                     <%# Eval("Matricula") %>
                 </td>
                 <td>
-                    Aqui deben de ir los idiomas
+                    <ul>
+                        <asp:Repeater ID="Repeater1" runat="server" DataSource='<%# DataBinder.Eval(Container.DataItem,"idiomas") %>'>
+                            <ItemTemplate>
+                                <li><%# Eval("Nombre") %></li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ul>
                 </td>
             </tr>
             </ItemTemplate>
