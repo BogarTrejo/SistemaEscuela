@@ -67,6 +67,7 @@ namespace SistemaEscuela.Finanzas
                 matricula.Fecha_Validacion = DateTime.Parse(date);
 
                 context.SaveChanges();
+                Label2.Text = "Se ha guardado con éxito";
             }
         }
 

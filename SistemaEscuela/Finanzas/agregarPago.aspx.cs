@@ -125,6 +125,8 @@ namespace SistemaEscuela.Finanzas
             {
                 context.pagos.Add(nuevoPago);
                 context.SaveChanges();
+
+                Response.Redirect("../MessageAction.aspx?m=8");
             }
         }
     }

@@ -244,7 +244,7 @@ namespace SistemaEscuela.Registro
                 context.alumnoes.Add(nuevoAlumno);
                 context.SaveChanges();
 
-
+                Response.Redirect("../MessageAction.aspx?m=9");
             }
         }
 

@@ -11,7 +11,7 @@ namespace SistemaEscuela
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            divMsg.InnerHtml = String.Format("<h1>{0}</h1>",LoginHelper.GetMessate(Convert.ToInt32(Request.QueryString["m"])));
         }
     }
 }

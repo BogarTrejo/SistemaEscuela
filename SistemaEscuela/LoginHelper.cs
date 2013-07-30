@@ -65,6 +65,12 @@ namespace SistemaEscuela
                 case 2:
                     msg = "Usuario o contraseña incorrectos";
                     break;
+                case 8:
+                    msg = "El pago se ha realizado con éxito";
+                    break;
+                case 9:
+                    msg = "Se ha agregado el registro con éxito, <a href=\"Registro/Add.aspx\">Clic aquí para agregar otro</a>";
+                    break;
             }
 
             return msg;

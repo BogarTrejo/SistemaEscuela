@@ -58,7 +58,7 @@
             <th>Fecha de verificación:</th>
             <td>
                 <asp:TextBox ID="txtFechaVerif" runat="server" ClientIDMode="Static"/>
-
+                <asp:Label ID="Label2" runat="server" ForeColor="Green"></asp:Label>
             </td>
             <td>
                 <asp:Button runat="server" ID="btnGuardarVerif" Text="Guardar" OnClick="btnGuardarVerif_Click" />
