@@ -174,6 +174,16 @@ namespace SistemaEscuela.Admin
 
                 while (reader.Read())
                 {
+                    var dummy = reader["Fecha_Verificacion"];
+                    DateTime fechaDummy;
+                    if (dummy == DBNull.Value)
+                    {
+                        fechaDummy = new DateTime(1990, 1, 1);                        
+                    }
+                    else
+                    {
+                        fechaDummy = (DateTime)dummy;
+                    }
                     var temp = new QueryFormat()
                     {
                         NoCons = Convert.ToInt32(reader["No_Consecutivo"]),
@@ -194,7 +204,7 @@ namespace SistemaEscuela.Admin
                         Estrategia = reader["Estrategia"].ToString(),
                         Estatus = reader["Estatus"].ToString(),
                         Observaciones = reader["Observaciones"].ToString(),
-                        FechaVerificacion = DateTime.Parse(reader["Fecha_Verificacion"].ToString()),
+                        FechaVerificacion =fechaDummy,
                         Calle = reader["Calle"].ToString(),
                         Colonia = reader["Colonia"].ToString(),
                         Compania = reader["Compania"].ToString(),
