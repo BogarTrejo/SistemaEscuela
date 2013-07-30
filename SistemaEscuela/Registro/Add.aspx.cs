@@ -27,6 +27,17 @@ namespace SistemaEscuela.Registro
         {
             if (!IsPostBack)
             {
+                bool result = LoginHelper.CheckUserSecurity(LoginType.Students);
+                if (!result)
+                {
+                    // Redirigir a login
+                    Response.Redirect("../Login.aspx?m=1");
+                    return;
+                }
+            }
+
+            if (!IsPostBack)
+            {
                 Session[Add.domicilioTitularSessionId] = null;
                 Session[Add.titularSessionId] = null;
             }

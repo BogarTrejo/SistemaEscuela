@@ -67,7 +67,26 @@ namespace SistemaEscuela
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                var session = Session[LoginHelper.UserLoginSessionID];
 
+                if (session == null)
+                {
+                    infoDiv.InnerHtml = "<ul><li></li><li><a id=\"loginLink\" href=\"#\">No logueado </a></li></ul> ";
+                }
+                else
+                {
+                    infoDiv.InnerHtml = "<ul><li><a id=\"loginLink\" href=\"#\">Bienvenido: " + session.ToString() + "</a></li><li><a href=\""+Request.Url+"?a=cerrar\">Cerrar Sesion</a></li></ul> ";
+                }
+            }
+
+            var action = Request.QueryString["a"];
+            if (action != null && action.ToString().Equals("cerrar"))
+            {
+                LoginHelper.DeleteUserSession();
+                Response.Redirect("Default.aspx");
+            }
         }
     }
 }

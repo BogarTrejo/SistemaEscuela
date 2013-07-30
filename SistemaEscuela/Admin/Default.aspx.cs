@@ -11,7 +11,15 @@ namespace SistemaEscuela.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                bool result = LoginHelper.CheckUserSecurity(LoginType.Admin);
+                if (!result)
+                {
+                    // Redirigir a login
+                    Response.Redirect("../Login.aspx?m=1");
+                }
+            }
         }
     }
 }

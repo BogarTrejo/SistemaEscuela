@@ -30,6 +30,17 @@ namespace SistemaEscuela.Finanzas
         {
             if (!IsPostBack)
             {
+                bool result = LoginHelper.CheckUserSecurity(LoginType.Payments);
+                if (!result)
+                {
+                    // Redirigir a login
+                    Response.Redirect("../Login.aspx?m=1");
+                    return;
+                }
+            }
+
+            if (!IsPostBack)
+            {
                 var id = Convert.ToInt32(Request.QueryString["id"]);
                 this.IdTitular = id;
 

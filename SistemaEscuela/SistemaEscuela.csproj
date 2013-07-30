@@ -189,6 +189,8 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Login.aspx" />
+    <Content Include="MessageAction.aspx" />
     <Content Include="packages.config" />
     <EntityDeploy Include="Model\multilingual.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -318,6 +320,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginHelper.cs" />
+    <Compile Include="MessageAction.aspx.cs">
+      <DependentUpon>MessageAction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageAction.aspx.designer.cs">
+      <DependentUpon>MessageAction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\alumno.cs">
       <DependentUpon>multilingual.tt</DependentUpon>
     </Compile>
@@ -331,6 +348,9 @@
       <DependentUpon>multilingual.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\idioma.cs">
+      <DependentUpon>multilingual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\login.cs">
       <DependentUpon>multilingual.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\matricula.cs">

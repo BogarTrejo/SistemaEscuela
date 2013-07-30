@@ -11,7 +11,16 @@ namespace SistemaEscuela.Registro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                bool result = LoginHelper.CheckUserSecurity(LoginType.Students);
+                if (!result)
+                {
+                    // Redirigir a login
+                    Response.Redirect("../Login.aspx?m=1");
+                    return;
+                }
+            }
         }
     }
 }

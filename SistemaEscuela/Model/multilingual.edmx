@@ -12,6 +12,7 @@
           <EntitySet Name="estrategia" EntityType="multilingualModel.Store.estrategia" store:Type="Tables" Schema="multilingual" />
           <EntitySet Name="idiomas" EntityType="multilingualModel.Store.idiomas" store:Type="Tables" Schema="multilingual" />
           <EntitySet Name="idiomas_has_alumno" EntityType="multilingualModel.Store.idiomas_has_alumno" store:Type="Tables" Schema="multilingual" />
+          <EntitySet Name="login" EntityType="multilingualModel.Store.login" store:Type="Tables" Schema="multilingual" />
           <EntitySet Name="matricula" EntityType="multilingualModel.Store.matricula" store:Type="Tables" Schema="multilingual" />
           <EntitySet Name="organizacion" EntityType="multilingualModel.Store.organizacion" store:Type="Tables" Schema="multilingual" />
           <EntitySet Name="pagos" EntityType="multilingualModel.Store.pagos" store:Type="Tables" Schema="multilingual" />
@@ -120,6 +121,15 @@
           </Key>
           <Property Name="Idiomas_idIdiomas" Type="int" Nullable="false" />
           <Property Name="Alumno_id_alumno" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="idLogin" />
+          </Key>
+          <Property Name="idLogin" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="Type" Type="int" />
         </EntityType>
         <EntityType Name="matricula">
           <Key>
@@ -374,6 +384,7 @@
           <EntitySet Name="dom_titular" EntityType="multilingualModel.dom_titular" />
           <EntitySet Name="estrategias" EntityType="multilingualModel.estrategia" />
           <EntitySet Name="idiomas" EntityType="multilingualModel.idioma" />
+          <EntitySet Name="logins" EntityType="multilingualModel.login" />
           <EntitySet Name="matriculas" EntityType="multilingualModel.matricula" />
           <EntitySet Name="organizacions" EntityType="multilingualModel.organizacion" />
           <EntitySet Name="pagos" EntityType="multilingualModel.pago" />
@@ -476,6 +487,15 @@
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="Nivel" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="alumnoes" Relationship="multilingualModel.idiomas_has_alumno" FromRole="idiomas" ToRole="alumno" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="idLogin" />
+          </Key>
+          <Property Name="idLogin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login1" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Type" Type="Int32" />
         </EntityType>
         <EntityType Name="matricula">
           <Key>
@@ -767,6 +787,16 @@
                 <ScalarProperty Name="idIdiomas" ColumnName="idIdiomas" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="multilingualModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="idLogin" ColumnName="idLogin" />
+                <ScalarProperty Name="Login1" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

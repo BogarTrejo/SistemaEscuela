@@ -245,4 +245,39 @@
             <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
         </asp:DetailsView>
     </fieldset>
+    <hr />
+    <h2>Manejo de Login</h2>
+    <asp:EntityDataSource ID="entityLogin" runat="server" ConnectionString="name=multilingualEntities" DefaultContainerName="multilingualEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="logins"></asp:EntityDataSource>
+    <asp:DetailsView ID="DetailsView6" runat="server" Height="50px" Width="125px" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="idLogin" DataSourceID="entityLogin" ForeColor="#333333" GridLines="None">
+            <EmptyDataTemplate>
+                <asp:Button ID="InsertButton" runat="server" CommandName="New"  Text="Nuevo"/>
+            </EmptyDataTemplate>         
+        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+        <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+        <EditRowStyle BackColor="#999999" />
+        <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+        <Fields>
+            <asp:BoundField DataField="idLogin" HeaderText="idLogin" ReadOnly="True" SortExpression="idLogin" />
+            <asp:BoundField DataField="Login1" HeaderText="Login1" SortExpression="Login1" />
+            <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+            <asp:TemplateField HeaderText="Type" SortExpression="Type">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Type") %>'></asp:TextBox>
+                    <asp:Label ID="Label1" runat="server" Text="Escriba 1 para Administrador, 2 Finanzas y 3 Registro Alumnos" />
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Type") %>'></asp:TextBox>
+                    <asp:Label ID="Label1" runat="server" Text="Escriba 1 para Administrador, 2 Finanzas y 3 Registro Alumnos" />
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Type") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+        </Fields>
+        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+    </asp:DetailsView>
 </asp:Content>

@@ -30,6 +30,7 @@ namespace SistemaEscuela.Model
         public DbSet<dom_titular> dom_titular { get; set; }
         public DbSet<estrategia> estrategias { get; set; }
         public DbSet<idioma> idiomas { get; set; }
+        public DbSet<login> logins { get; set; }
         public DbSet<matricula> matriculas { get; set; }
         public DbSet<organizacion> organizacions { get; set; }
         public DbSet<pago> pagos { get; set; }

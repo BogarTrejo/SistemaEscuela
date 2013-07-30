@@ -12,7 +12,15 @@ namespace SistemaEscuela.Finanzas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                bool result = LoginHelper.CheckUserSecurity(LoginType.Payments);
+                if (!result)
+                {
+                    // Redirigir a login
+                    Response.Redirect("../Login.aspx?m=1");
+                }
+            }
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
